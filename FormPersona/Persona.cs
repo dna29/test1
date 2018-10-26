@@ -6,20 +6,22 @@ using System.Threading.Tasks;
 
 namespace FormPersona
 {
-   
+   [Serializable]
     public class Persona
     {
-        public string nombre { get; set; }
-        public string apellidos { get; set; }
-        public string sexo { get; set; }
-        public string ciudad { get; set; }
+        public string name { get; set; }
+        public string surname { get; set; }
+        public string sex { get; set; }
+        public string city { get; set; }
 
-        public Persona(string nombre, string apellidos, string sexo, string ciudad)
+        public Persona(string name, string surname, string sex, string city)
         {
-            this.nombre = nombre;
-            this.apellidos = apellidos;
-            this.sexo = sexo;
-            this.ciudad = ciudad;
+            this.name = name;
+            this.surname = surname;
+            this.sex = sex;
+            this.city = city;
         }
+
+
     }
 }

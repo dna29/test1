@@ -47,10 +47,10 @@
             this.lbName.AutoSize = true;
             this.lbName.Location = new System.Drawing.Point(13, 13);
             this.lbName.Name = "lbName";
-            this.lbName.Size = new System.Drawing.Size(44, 13);
+            this.lbName.Size = new System.Drawing.Size(35, 13);
             this.lbName.TabIndex = 0;
-            this.lbName.Text = "Nombre";
-            this.lbName.Click += new System.EventHandler(this.label1_Click);
+            this.lbName.Text = "Name";
+            this.lbName.Click += new System.EventHandler(this.lbName_Click);
             // 
             // lbSurname
             // 
@@ -59,29 +59,28 @@
             this.lbSurname.Name = "lbSurname";
             this.lbSurname.Size = new System.Drawing.Size(49, 13);
             this.lbSurname.TabIndex = 1;
-            this.lbSurname.Text = "Apellidos";
+            this.lbSurname.Text = "Surname";
             // 
             // rbMan
             // 
             this.rbMan.AutoSize = true;
             this.rbMan.Location = new System.Drawing.Point(6, 19);
             this.rbMan.Name = "rbMan";
-            this.rbMan.Size = new System.Drawing.Size(62, 17);
+            this.rbMan.Size = new System.Drawing.Size(46, 17);
             this.rbMan.TabIndex = 3;
             this.rbMan.TabStop = true;
-            this.rbMan.Text = "Hombre";
+            this.rbMan.Text = "Man";
             this.rbMan.UseVisualStyleBackColor = true;
-            this.rbMan.CheckedChanged += new System.EventHandler(this.rbMan_CheckedChanged);
             // 
             // rbWoman
             // 
             this.rbWoman.AutoSize = true;
             this.rbWoman.Location = new System.Drawing.Point(6, 51);
             this.rbWoman.Name = "rbWoman";
-            this.rbWoman.Size = new System.Drawing.Size(51, 17);
+            this.rbWoman.Size = new System.Drawing.Size(62, 17);
             this.rbWoman.TabIndex = 4;
             this.rbWoman.TabStop = true;
-            this.rbWoman.Text = "Mujer";
+            this.rbWoman.Text = "Woman";
             this.rbWoman.UseVisualStyleBackColor = true;
             // 
             // lbCity
@@ -89,10 +88,9 @@
             this.lbCity.AutoSize = true;
             this.lbCity.Location = new System.Drawing.Point(13, 201);
             this.lbCity.Name = "lbCity";
-            this.lbCity.Size = new System.Drawing.Size(40, 13);
+            this.lbCity.Size = new System.Drawing.Size(24, 13);
             this.lbCity.TabIndex = 5;
-            this.lbCity.Text = "Ciudad";
-            this.lbCity.Click += new System.EventHandler(this.lbCity_Click);
+            this.lbCity.Text = "City";
             // 
             // cbCity
             // 
@@ -111,7 +109,6 @@
             this.cbCity.Name = "cbCity";
             this.cbCity.Size = new System.Drawing.Size(121, 21);
             this.cbCity.TabIndex = 6;
-            this.cbCity.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // btnClearForm
             // 
@@ -120,7 +117,7 @@
             this.btnClearForm.Name = "btnClearForm";
             this.btnClearForm.Size = new System.Drawing.Size(101, 23);
             this.btnClearForm.TabIndex = 7;
-            this.btnClearForm.Text = "Limpiar Formulario";
+            this.btnClearForm.Text = "Clear Form";
             this.btnClearForm.UseVisualStyleBackColor = true;
             this.btnClearForm.Click += new System.EventHandler(this.btnClearForm_Click);
             // 
@@ -131,7 +128,7 @@
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 8;
-            this.btnSave.Text = "Guardar";
+            this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
@@ -159,7 +156,7 @@
             this.gbSex.Size = new System.Drawing.Size(200, 84);
             this.gbSex.TabIndex = 11;
             this.gbSex.TabStop = false;
-            this.gbSex.Text = "Sexo";
+            this.gbSex.Text = "Sex";
             // 
             // Form1
             // 
@@ -177,6 +174,7 @@
             this.Controls.Add(this.lbName);
             this.Name = "Form1";
             this.Text = "Formulario de Inscripción";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.gbSex.ResumeLayout(false);
             this.gbSex.PerformLayout();
             this.ResumeLayout(false);

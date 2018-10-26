@@ -7,7 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using System.IO;
+/// <summary>
+/// 
+/// </summary>
 namespace FormPersona
 {
     public partial class Form1 : Form
@@ -17,55 +20,65 @@ namespace FormPersona
             InitializeComponent();
             this.txtName.Focus();
         }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lbCity_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void rbMan_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnClearForm_Click(object sender, EventArgs e)
         {
             this.Controls.OfType<TextBox>().ToList().ForEach(txt => txt.Text = "");
-            this.Controls.OfType<GroupBox>().ToList()[0].Controls.OfType<RadioButton>().ToList().ForEach(rb => rb.Checked = false);
-
-
-            
+            this.Controls.OfType<GroupBox>().ToList()[0].Controls.OfType<RadioButton>().ToList().ForEach(rb => rb.Checked = false);   
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            string nombre = txtName.Text;
-            string apellidos = txtSurname.Text;
-            string sexo = (string)this.gbSex.Controls.OfType<RadioButton>().FirstOrDefault(rb => rb.Checked).Text;
-            string ciudad = cbCity.SelectedText;
+            string name = txtName.Text;
+            string surname = txtSurname.Text;
+            string sex = (string)this.gbSex.Controls.OfType<RadioButton>().FirstOrDefault(rb => rb.Checked).Text;
+            string city = cbCity.SelectedText;
 
-            Persona person = new Persona(nombre, apellidos, sexo, ciudad);
-            Console.WriteLine(comprobar(person));
+            Persona person = new Persona(name, surname, sex, city);
+            Console.WriteLine(writeIn(person));
             
         }
-
-        public Boolean comprobar(Persona person)
+        /// <summary>
+        /// Writes an object in a txt file
+        /// </summary>
+        /// <param name="person"></param>
+        /// <returns></returns>
+        public Boolean writeIn(Persona person)
         {
-            if (person!=null)
+
+            if (System.IO.File.Exists("C:/Users/dnieto/Documents/TXT_Prueba.txt"))
             {
-                return true;
+                using (StreamWriter objectWriter = new StreamWriter("C:/Users/dnieto/Documents/TXT_Prueba.txt", true))
+                {
+                    objectWriter.WriteLine(person.ToString());
+                    return true;
+                }
+                return false;
+            }else
+            {
+                string file_name = @"C:\\Users\\dnieto\\Documents\\TXT_Prueba.txt";
+                using (StreamWriter generate = File.AppendText(file_name))
+                {
+                    generate.WriteLine(person.ToString());
+                    generate.Close();
+                    return true;
+
+                }
+                    
+                
+               
             }
-            return false;
+            
+          
+        }
+
+        private void lbName_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
