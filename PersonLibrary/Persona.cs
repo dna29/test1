@@ -22,6 +22,10 @@ namespace FormPersona
             this.city = city;
         }
 
+        public override string ToString()
+        {
+            return "Person " + name + " " + surname + " " + sex + " " + city;
+        }
 
     }
 }

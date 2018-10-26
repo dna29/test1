@@ -31,7 +31,7 @@ namespace FormPersona
             string name = txtName.Text;
             string surname = txtSurname.Text;
             string sex = (string)this.gbSex.Controls.OfType<RadioButton>().FirstOrDefault(rb => rb.Checked).Text;
-            string city = cbCity.SelectedText;
+            string city = cbCity.Text;
 
             Persona person = new Persona(name, surname, sex, city);
             Console.WriteLine(writeIn(person));
@@ -44,31 +44,31 @@ namespace FormPersona
         /// <returns></returns>
         public Boolean writeIn(Persona person)
         {
-
-            if (System.IO.File.Exists("C:/Users/dnieto/Documents/TXT_Prueba.txt"))
+            try
             {
-                using (StreamWriter objectWriter = new StreamWriter("C:/Users/dnieto/Documents/TXT_Prueba.txt", true))
+                if (System.IO.File.Exists(@"C:\Users\DTUser\Documents\Prueba\txtPrueba.txt"))
                 {
-                    objectWriter.WriteLine(person.ToString());
-                    return true;
+                    using (StreamWriter objectWriter = new StreamWriter(@"C:\Users\DTUser\Documents\Prueba\txtPrueba.txt", true))
+                    {
+                        objectWriter.WriteLine(person.ToString());
+                        return true;
+                    }
+                    return false;
                 }
-                return false;
-            }else
-            {
-                string file_name = @"C:\\Users\\dnieto\\Documents\\TXT_Prueba.txt";
-                using (StreamWriter generate = File.AppendText(file_name))
+                else
                 {
-                    generate.WriteLine(person.ToString());
-                    generate.Close();
-                    return true;
-
+                    using (StreamWriter w = File.CreateText(@"C:\Users\DTUser\Documents\Prueba\txtPrueba.txt"))
+                    {
+                        w.WriteLine(person.ToString());
+                        return true;
+                    }
                 }
-                    
-                
-               
             }
-            
-          
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
         }
 
         private void lbName_Click(object sender, EventArgs e)
